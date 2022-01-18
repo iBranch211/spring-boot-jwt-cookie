@@ -41,8 +41,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/api/1.0/me").authenticated()
-                .antMatchers(HttpMethod.GET, "/api/1.0/logout").authenticated()
-                .antMatchers(HttpMethod.POST, "/api/1.0/refresh").authenticated()
                 .anyRequest().permitAll();
 
         http.addFilterBefore(tokenFilter(), UsernamePasswordAuthenticationFilter.class);
