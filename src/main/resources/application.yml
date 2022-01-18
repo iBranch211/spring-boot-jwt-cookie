@@ -1,0 +1,36 @@
+server:
+  forward-headers-strategy: framework
+  error:
+    include-exception: false
+    include-binding-errors: always
+    include-message: always
+    include-stacktrace: never
+
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      javax:
+        persistence:
+          validation:
+            mode: none
+
+auth:
+  access-token-cookie-name: AuthToken
+  refresh-token-cookie-name: RefreshToken
+  token-secret: jwtAliSecretKey
+  token-expiration-ms: 5400000
+  refresh-token-expiration-ms: 10800000
+
+cipher:
+  key: secureCDCKey
